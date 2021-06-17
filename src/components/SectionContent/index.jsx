@@ -106,7 +106,7 @@ export function SectionContent() {
                 <div>
                     <main>
                         <div onClick={showBetsNow}>Jogos de agora</div>
-                        <div onClick={showBets}>Todos os jogos</div>
+                        <div onClick={showBets}>Todos os jogos <span>{betsDatabase?.length}</span></div>
                     </main>  
                 </div>
                 { showAllBets ? (

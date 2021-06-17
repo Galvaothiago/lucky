@@ -59,6 +59,7 @@ export const ContainerResults = styled.div`
             display: flex;
 
             div {
+                width: auto;
                 flex: .5;
                 height: 100%;
                 background-color: #d8f3dc;
@@ -67,16 +68,35 @@ export const ContainerResults = styled.div`
                 cursor: pointer;
                 transition: all .3s;
 
+                position: relative;
+
                 & + div {
                     border-left: 1px solid white;
                 }
 
                 &:hover {
-                    color: white;
+                    color: #bfd200;
                 }
 
                 &:clicked {
                     transform: translateY(2px);
+                }
+
+                span {
+                    display: block;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: .5rem;
+                    line-height: 1rem;
+                    background-color: #bfd200;
+
+                    font-size: xx-small;
+                    font-weight: 400;
+                    color: white;
+
+                    position: absolute;
+                    bottom: .5rem;
+                    right: 2rem;
                 }
             }
         }
