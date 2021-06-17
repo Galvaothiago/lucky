@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ContainerFooter, ContinerCardNumbers, Number, NumbersClicked, SectionFeedback, SectionButton } from './styles'
+import { ContainerFooter, ContinerCardNumbers, NumberStyleLight, NumberStyleDark, SectionFeedback, SectionButton } from './styles'
 import { NumbersContext } from '../context/numbersContext'
 
 export function CardNumber() {
@@ -15,7 +15,7 @@ export function CardNumber() {
         <ContinerCardNumbers>
             <div>
                 { numbersFromOneToFifteen.map( number => (
-                    <Number 
+                    <NumberStyleLight 
                         key={number}
                         onClick={ () => { 
                             handleNumbers(number)
@@ -23,37 +23,37 @@ export function CardNumber() {
             
                     >
                         {number}
-                    </Number>
+                    </NumberStyleLight>
                 ) ) }
             </div>
             <div>
                 { numbersFromSixteenToThirty.map( number => (
-                    <NumbersClicked 
+                    <NumberStyleDark 
                         key={number}
                         onClick={ () => { handleNumbers(number) } }
                     >
                         {number}
-                    </NumbersClicked>
+                    </NumberStyleDark>
                 ) ) }
             </div>
             <div>
                 { numbersFromThirtyoneToFortyfive.map( number => (
-                    <Number 
+                    <NumberStyleLight 
                         key={number}
                         onClick={ () => { handleNumbers(number) } }
                     >
                         {number}
-                    </Number>
+                    </NumberStyleLight>
                 ) ) }
             </div>
             <div>
                 { numbersFromFortysixToSixty.map( number => (
-                    <NumbersClicked 
+                    <NumberStyleDark 
                         key={number}
                         onClick={ () => { handleNumbers(number) } }
                     >
                         {number}
-                    </NumbersClicked>
+                    </NumberStyleDark>
                 ) ) }
             </div>
             <ContainerFooter>

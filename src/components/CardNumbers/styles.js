@@ -1,15 +1,11 @@
 import styled from 'styled-components'
 
 export const ContinerCardNumbers = styled.div`
-    width: 35rem;
+    max-width: 35rem;
+    width: 100%;
     height: 20rem;
-    // display: flex;
-    // flex-direction: row;
-
     
     padding: 1rem;
-    // align-items: center;
-
     background: #fff;
     
     -webkit-box-shadow: 0px 3px 12px -2px rgba(0,0,0,0.75);
@@ -42,7 +38,7 @@ export const ContinerCardNumbers = styled.div`
 
 `
 
-export const Number = styled.div`
+export const NumberStyleLight = styled.div`
     display: flex;
    
     width: 2rem;
@@ -60,7 +56,7 @@ export const Number = styled.div`
     cursor: pointer;
 `
 
-export const NumbersClicked = styled.div`
+export const NumberStyleDark = styled.div`
     display: flex;
    
     width: 2rem;
@@ -137,7 +133,7 @@ export const SectionButton = styled.div`
         height: 2rem;
         margin-top: 3rem;
 
-        background: #1b4332;
+        background: #358f80;
         border-radius: 16px;
         border: none;
 
@@ -146,5 +142,9 @@ export const SectionButton = styled.div`
         font-size: .6rem;
         font-weight: 400;
         text-transform: uppercase;
+
+        &:hover {
+            filter: brightness(.9)
+        }
     }
 `
