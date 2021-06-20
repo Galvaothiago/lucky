@@ -6,7 +6,7 @@ import { NumbersContext } from '../context/numbersContext'
 import db from '../../firebase';
 
 export function SectionContent() {
-    const { allBets } = useContext(NumbersContext)
+    const { allBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
     const resultFake = [2, 11, 37, 48, 51, 53]
 
     const quantity = allBets.length
@@ -14,7 +14,6 @@ export function SectionContent() {
     const [ showAllBets, setShowAllBets ] = useState(false)
     const [ betsDatabase, setBetDatabase ] = useState()
     const [resultMega, setResultMega] = useState([])
-    const [ showFeedbackBets, setShowFeedbackBets ] = useState(false)
 
     const formatedArray = () => {
         const arrNumbers = []
@@ -51,6 +50,10 @@ export function SectionContent() {
 
     const saveData = () => {
         try {
+            if(arrayOrdered.length === 0) {
+                alert('ops, crie algum jogo antes de salva-lo')
+                return
+            }
             arrayOrdered.map(array => {
                 db.collection('games').add({
                     game: array
@@ -94,8 +97,6 @@ export function SectionContent() {
         setShowFeedbackBets(true)
     }
 
-    console.log(resultMega)
-    
     return (
         <ContainerContent>
             <HeaderContent>

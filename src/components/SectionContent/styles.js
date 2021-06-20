@@ -101,18 +101,6 @@ export const ContainerResults = styled.div`
             }
         }
 
-
-
-        // button {
-        //     width: auto;
-        //     height: auto;
-
-        //     cursor: pointer;
-
-        //     background: none;
-        //     border: none;
-        //     outline: none;
-        // }
     }
 
     section {

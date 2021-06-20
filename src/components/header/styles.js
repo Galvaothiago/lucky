@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint'
 
 export const ContainerHeader = styled.div`
     display: flex;
@@ -11,6 +12,11 @@ export const ContainerHeader = styled.div`
     background-image: linear-gradient(to right, #1b4332, #2d6a4f);
     color: #fff;
 
+    @media(max-width: 600px) {
+        padding: 1rem;
+        font-size: .86rem;
+    }
+
     h1 {
         font-weight: 300;
     }
@@ -18,16 +24,11 @@ export const ContainerHeader = styled.div`
     span {
         font-size: 1.4rem;
         font-weight: 200;
+
+        @media(max-width: 600px) {
+            font-size: 1rem;
+        }
     }
-
-`
-export const ContainerNavi = styled.div`
-    width: 10rem;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
     button {
         background: none;
@@ -38,4 +39,5 @@ export const ContainerNavi = styled.div`
         color: #fff;
         font-size: 1rem;
     }
+
 `

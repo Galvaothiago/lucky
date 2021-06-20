@@ -2,7 +2,8 @@ import { auth, provider } from '../../firebase'
 import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/StateProvider'
 import { ContainerLogin, Sign } from './styles'
-import Cookies from 'js-cookie'
+
+import { FaGoogle } from 'react-icons/fa'
 
 export function Login() {
     const [{}, dispatch] = useStateValue()
@@ -19,8 +20,12 @@ export function Login() {
     return (
         <ContainerLogin>
             <Sign>
-                <h3>Lucky</h3>
-                <button onClick={signIn}>Sign In with google</button>
+                <section>
+                    <img src="/clover.png" alt="Clover" />
+                </section>
+                <div>
+                    <button onClick={signIn}><FaGoogle />Sign In with google</button>
+                </div>
             </Sign>
         </ContainerLogin>
     )

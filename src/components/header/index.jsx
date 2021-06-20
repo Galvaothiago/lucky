@@ -14,10 +14,9 @@ export function Header() {
     return (
         <ContainerHeader>
             <h1>Lucky</h1>
-            <span>Ola, {displayName}</span>
-            <ContainerNavi>
-                <button onClick={signOut} >Exit</button>
-            </ContainerNavi>
+            <span>Olá, {displayName}</span>
+
+            <button onClick={signOut} >Exit</button>      
         </ContainerHeader>
     )
 }

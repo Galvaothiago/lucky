@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const ContainerResult = styled.div`
-    width: 35rem;
+    max-width: 35rem;
+    width: 100%;
     height: 13rem;
 
     background-image: linear-gradient(to left top,  #40916c, #95d5b2);
