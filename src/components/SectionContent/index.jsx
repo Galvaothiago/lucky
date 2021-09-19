@@ -4,6 +4,7 @@ import { ContainerCheckNumber, ContainerContent, ContainerResults, HeaderContent
 import Scrollbar from 'react-scrollbars-custom'
 import { NumbersContext } from '../context/numbersContext'
 import db from '../../firebase';
+import { Spinner } from '../Spinner';
 
 export function SectionContent() {
     const { allBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
@@ -14,6 +15,8 @@ export function SectionContent() {
     const [ showAllBets, setShowAllBets ] = useState(false)
     const [ betsDatabase, setBetDatabase ] = useState()
     const [resultMega, setResultMega] = useState([])
+
+    const [ delayLoading, setDelayLoading ] = useState(null)   // variable used to create a delay
 
     const formatedArray = () => {
         const arrNumbers = []
@@ -68,6 +71,7 @@ export function SectionContent() {
     }
         
     function checkNumbers(verify) {
+        setDelayLoading(true)
 
         const betsForCheckout = verify
         let matchNumbers = []
@@ -93,6 +97,11 @@ export function SectionContent() {
                 matchNumbers.push(newArray)
             }
         }
+
+        setTimeout(() => {
+            setDelayLoading(null)
+        }, 2000)
+
         setResultMega(matchNumbers)
         setShowFeedbackBets(true)
     }
@@ -131,9 +140,14 @@ export function SectionContent() {
                     )}
             </ContainerResults>
             <ContainerCheckNumber>
-                <p>{ showFeedbackBets ? (
-                    resultMega.length !== 0 ? (resultMega.length === 1 ? `Parabens, voce teve ${resultMega.length} jogo premiado` : `Parabens, voce teve ${resultMega.length} jogos premiados`) : 'nenhum jogo premiado'
-                ) : ''}</p>
+                { delayLoading ? (
+                    <Spinner />
+                ) : (
+                    <p>{ showFeedbackBets ? (
+                        resultMega.length !== 0 ? (resultMega.length === 1 ? `Parabens, voce teve ${resultMega.length} jogo premiado` : `Parabens, voce teve ${resultMega.length} jogos premiados`) : 'nenhum jogo premiado'
+                    ) : ''}</p>
+                ) }
+
                 <button
                     onClick={ () => checkNumbers(betsDatabase) }
                 >
