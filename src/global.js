@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Inter', san-serif;
     }
 
+    body {
+        overflow: hidden;
+    }
+
 
     html {
         @media(max-width: 1080px) {
