@@ -44,14 +44,11 @@ export const ContainerResults = styled.div`
     margin-top: 1.5rem;
     padding: 1rem 1rem;
 
-    // background: green;
-
     > div {
         width: 90%;
         height: 2rem;
         text-align: center;
         background: white;
-        // border: 1px solid black; 
 
         main {
             width: 100%;
@@ -123,8 +120,6 @@ export const ContainerResults = styled.div`
             width: 5rem;
             height: 1.9rem;
         }
-
-    
 
         p {
             width: 100%;
@@ -198,6 +193,13 @@ export const ContainerCheckNumber = styled.div`
         font-size: 1.1rem;
         font-weight: 500;
         margin-top: 2rem;
+
+        cursor: pointer;
+        transition: color .2s;
+
+        &:hover {
+            color:  #2d6a4f;
+        }
     }
 
     button {

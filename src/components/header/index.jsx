@@ -1,16 +1,22 @@
 import { auth } from '../../firebase'
+import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/StateProvider'
-import { ContainerHeader, ContainerNavi } from './styles'
+import { ContainerHeader } from './styles'
 
 export function Header() {
-    const [{ user }] = useStateValue()
+    const [{ user }, dispatch] = useStateValue()
 
     const signOut = () => {
-        auth.signOut().then(() => console.log('user did logout'))
+        auth.signOut()
+        
+        dispatch({
+            type: actionTypes.LOGOUT_USER,
+            user: null
+        })
     }
 
     const { displayName } = user
-    console.log(displayName)
+
     return (
         <ContainerHeader>
             <h1>Lucky</h1>

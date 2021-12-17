@@ -47,8 +47,6 @@ export function NumberProvider({ children }) {
         if(showNumbers.length === 6) {
             finalyBets.push(showNumbers)
 
-            numbersClicked = []
-
             setShowNumbers([])
             setAllBets( oldArray => [...oldArray, finalyBets] )
 

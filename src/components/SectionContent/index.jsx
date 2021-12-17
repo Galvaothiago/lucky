@@ -1,111 +1,26 @@
-import { useContext, useEffect, useState } from 'react'
 import { ContainerCheckNumber, ContainerContent, ContainerResults, HeaderContent } from "./styles";
 
 import Scrollbar from 'react-scrollbars-custom'
-import { NumbersContext } from '../context/numbersContext'
-import db from '../../firebase';
 import { Spinner } from '../Spinner';
+import { useContext } from "react";
+import { VerifyContext } from "../context/VerifyResultContext";
 
 export function SectionContent() {
-    const { allBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
-    const resultFake = [2, 11, 37, 48, 51, 53]
-
-    const quantity = allBets.length
-
-    const [ showAllBets, setShowAllBets ] = useState(false)
-    const [ betsDatabase, setBetDatabase ] = useState()
-    const [resultMega, setResultMega] = useState([])
-
-    const [ delayLoading, setDelayLoading ] = useState(null)   // variable used to create a delay
-
-    const formatedArray = () => {
-        const arrNumbers = []
-
-        for(let i = 0; i < allBets.length; i++) {
-            const arr = allBets[i][0].map( number => number[0] )
-            arrNumbers.push(arr)
-        }
-
-        return arrNumbers
-    }
-
-    function showBetsNow() {
-        setShowAllBets(true)
-    }
-
-    function showBets() {
-        setShowAllBets(false)
-    }
-
-    const array = formatedArray()
-    const arrayOrdered = array.map( arr => arr.sort((a, b) => a - b) )
-
-    useEffect(() => {
-        db.collection('games').onSnapshot(snapshot => (
-            setBetDatabase( snapshot.docs.map(doc => ({
-                id: doc.id,
-                data: doc.data()
+    const { 
+        quantity, 
+        showBets, 
+        showBetsNow, 
+        showAllBets, 
+        saveData, 
+        showFeedbackBets, 
+        betsDatabase, 
+        arrayOrdered, 
+        delayLoading, 
+        allHits, 
+        checkNumbers,
+        showModalResult,
+     } = useContext(VerifyContext)
     
-            })))
-        )) 
-
-    },[showAllBets])
-
-    const saveData = () => {
-        try {
-            if(arrayOrdered.length === 0) {
-                alert('ops, crie algum jogo antes de salva-lo')
-                return
-            }
-            arrayOrdered.map(array => {
-                db.collection('games').add({
-                    game: array
-                })
-            })
-
-            alert('Dados salvo com sucesso!')
-
-        } catch(err) {
-            alert('Nao foi possivel salvar os dados, tente novamente mais tarde.')
-        }
-    }
-        
-    function checkNumbers(verify) {
-        setDelayLoading(true)
-
-        const betsForCheckout = verify
-        let matchNumbers = []
- 
-        for(let i = 0; i < verify.length; i++) {
-            const newArray = []
-    
-            const arrFormated = betsForCheckout.map(bet => ([
-                ...bet.data.game
-            ]))
-
-            const arr = arrFormated[i]
-    
-            for(let i = 0; i < arrFormated.length; i++) {
-                const resultFiltered = resultFake.filter(number => number === arr[i])
-                console.log(resultMega)
-                if(resultFiltered[0]) {
-                    newArray.push(resultFiltered[0])
-                }
-            }
-                
-            if(newArray.length >= 3) {
-                matchNumbers.push(newArray)
-            }
-        }
-
-        setTimeout(() => {
-            setDelayLoading(null)
-        }, 2000)
-
-        setResultMega(matchNumbers)
-        setShowFeedbackBets(true)
-    }
-
     return (
         <ContainerContent>
             <HeaderContent>
@@ -143,8 +58,8 @@ export function SectionContent() {
                 { delayLoading ? (
                     <Spinner />
                 ) : (
-                    <p>{ showFeedbackBets ? (
-                        resultMega.length !== 0 ? (resultMega.length === 1 ? `Parabens, voce teve ${resultMega.length} jogo premiado` : `Parabens, voce teve ${resultMega.length} jogos premiados`) : 'nenhum jogo premiado'
+                    <p onClick={ showModalResult }>{ showFeedbackBets ? (
+                        allHits.length !== 0 ? (allHits.length === 1 ? `Parabens, voce teve ${allHits.length} jogo premiado` : `Parabens, voce teve ${allHits.length} jogos premiados`) : 'nenhum jogo premiado'
                     ) : ''}</p>
                 ) }
 

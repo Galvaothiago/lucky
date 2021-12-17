@@ -4,9 +4,11 @@ import { useStateValue } from '../context/StateProvider'
 import { ContainerLogin, Sign } from './styles'
 
 import { FaGoogle } from 'react-icons/fa'
+import { signInWithGoogle } from '../../functions-firebase'
+import { useEffect } from 'react'
 
 export function Login() {
-    const [{}, dispatch] = useStateValue()
+    const [user, dispatch] = useStateValue()
 
     const signIn = () => {
         auth.signInWithPopup(provider)
@@ -16,7 +18,7 @@ export function Login() {
             }) )
             .catch( err => alert(err.message) )
     }
-
+    
     return (
         <ContainerLogin>
             <Sign>
