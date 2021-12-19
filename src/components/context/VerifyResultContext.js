@@ -6,7 +6,7 @@ import { NumbersContext } from "./numbersContext";
 export const VerifyContext = createContext({})
 
 export function VerifyProvider({ children }) {
-    const { allBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
+    const { allBets, setAllBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
     const resultFake = [17, 20, 22, 35, 41 ,42]
 
     const quantity = allBets.length
@@ -71,9 +71,9 @@ export function VerifyProvider({ children }) {
     }
 
     const saveData = () => {
-        const canSave = permissionToSaveBet()
+        const allowedSave = permissionToSaveBet()
 
-        if(canSave) {
+        if(allowedSave) {
             try {
                 if(arrayOrdered.length === 0) {
                     alert('ops, crie algum jogo antes de salva-lo')
@@ -86,6 +86,8 @@ export function VerifyProvider({ children }) {
                 })
     
                 alert('Dados salvo com sucesso!')
+                setAllBets([])
+
     
             } catch(err) {
                 alert('Nao foi possivel salvar os dados, tente novamente mais tarde.')
@@ -149,9 +151,9 @@ export function VerifyProvider({ children }) {
             }
         }
 
-        setTimeout(() => {
-            setDelayLoading(null)
-        }, 900)
+        // setTimeout(() => {
+        //     setDelayLoading(null)
+        // }, 900)
 
         const bets = {
             threeNumbers,
@@ -163,6 +165,7 @@ export function VerifyProvider({ children }) {
         setAllHits(allNumbersAwarded)
         setBetsAwarded(bets)
         setShowFeedbackBets(true)
+        setDelayLoading(null)
     }
 
     const showModalResult = () => {
