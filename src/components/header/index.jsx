@@ -6,8 +6,12 @@ import { ContainerHeader } from './styles'
 export function Header() {
     const [{ user }, dispatch] = useStateValue()
 
-    const signOut = () => {
-        auth.signOut()
+    const userDefault = {
+        displayName: 'default'
+    }
+
+    const signOut = async () => {
+        await auth.signOut()
         
         dispatch({
             type: actionTypes.LOGOUT_USER,
@@ -15,12 +19,11 @@ export function Header() {
         })
     }
 
-    // const { displayName } = user
-
+    const { displayName } = user || userDefault
     return (
         <ContainerHeader>
             <h1>Lucky</h1>
-            <span>Olá, thiago</span>
+            <span>Olá, {displayName}</span>
 
             <button onClick={signOut} >Exit</button>      
         </ContainerHeader>
