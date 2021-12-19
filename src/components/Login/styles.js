@@ -8,9 +8,6 @@ export const ContainerLogin = styled.div`
     place-items: center;
 
     background: #49a078;
-
-   
-
 `
 
 export const Sign = styled.div`
@@ -23,6 +20,13 @@ export const Sign = styled.div`
     border-radius: 10px;
 
     box-shadow: 1px 9px 25px -9px rgba(0,0,0,0.87);
+
+    @media (max-width: 510px) {
+        max-width: 29rem;
+        display: flex;
+        flex-direction: column;
+
+    }
 
     section {
         flex: .4;
@@ -47,6 +51,10 @@ export const Sign = styled.div`
         align-items: center;
         justify-content: center;
         border-radius: 0 10px 10px 0;
+
+        @media(max-width: 510px) {
+            border-radius: 0 0 10px 0;
+        }
 
         background: #74c69d;
 
@@ -77,17 +85,6 @@ export const Sign = styled.div`
         }
     }
 
-    // button {
-    //     width: 22rem;
-    //     height: 3rem;
-    //     font-size: .87rem;
-    //     font-weight: 800;
-    //     text-transform: uppercase;
-    //     border: 0;
-    //     border-radius: 15px;   
-    //     background: #fff;
-    //     cursor: pointer;
-    // }
 `
 
 
