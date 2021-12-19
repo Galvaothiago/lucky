@@ -1,18 +1,13 @@
-
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
+import { VerifyContext } from '../context/VerifyResultContext'
 import { ContainerResult } from './styles'
 
-import { NumbersContext } from '../context/numbersContext'
-
-
 export function CardResultBet() {
-    const resultFake = [2, 11, 37, 48, 51, 53]
-
+    const { resultFake } = useContext(VerifyContext)
     return (
         <ContainerResult>
             <div>
-               <h4>{'MEGA-SENA' }</h4>
-               <span>concurso: { '2034'}</span>
+               <h4>MEGA DA VIRADA</h4>
             </div>
             <main>
                 { resultFake?.map( dezena => (
@@ -20,7 +15,7 @@ export function CardResultBet() {
                 ) ) }
             </main>
             <footer>
-                <span>ultimo concurso: { '16/06/21' }</span>
+                <span>ultimo sorteio: 31/12/2020</span>
             </footer>
         </ContainerResult>
     )

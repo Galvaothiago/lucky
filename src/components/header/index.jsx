@@ -15,12 +15,12 @@ export function Header() {
         })
     }
 
-    const { displayName } = user
+    // const { displayName } = user
 
     return (
         <ContainerHeader>
             <h1>Lucky</h1>
-            <span>Olá, {displayName}</span>
+            <span>Olá, thiago</span>
 
             <button onClick={signOut} >Exit</button>      
         </ContainerHeader>

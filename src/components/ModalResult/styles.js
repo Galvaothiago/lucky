@@ -75,10 +75,11 @@ export const Main = styled.main`
 `
 
 export const ContainerResult = styled.div`
+    min-width: 27rem;
     width: 70%;
     min-height: 10rem;
     height: 100%;
-    padding: .4rem;
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;

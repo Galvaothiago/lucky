@@ -4,8 +4,13 @@ export const ContinerCardNumbers = styled.div`
     max-width: 35rem;
     width: 100%;
     height: 20rem;
+
+    @media (max-width: 510px) {
+        max-width: 29rem;
+        width: 100%;
+    }
     
-    padding: 1rem;
+    padding: .5rem;
     background: #fff;
     
     -webkit-box-shadow: 0px 3px 12px -2px rgba(0,0,0,0.75);
@@ -92,13 +97,18 @@ export const SectionFeedback = styled.section`
 
     span {
         display: flex;
-        margin-top: 1.3rem;
+        margin-top: 2rem;
         
         p {
             height: 2rem;
             font-size: 1.5rem;
             font-weight: 300;
-            // border-bottom: .2rem solid #95d5b2; 
+
+            @media (max-width: 510px) {
+                height: 1rem;
+                font-size: 1rem;
+                font-weight: 600;
+            }
 
             & + p {
                 margin-left: 1.5rem;

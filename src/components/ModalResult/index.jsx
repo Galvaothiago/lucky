@@ -30,8 +30,7 @@ export function ModalResult({ data }) {
                         { betsFiltered.map((arrResult) => (
                             <ContainerResult>
                                 { arrResult.filter(arr => arr.length !== 6).map(arr => (
-                                    <p>{arr.length}</p>
-                                )) }
+                                <p>{arr.length}</p>))}
                                { arrResult.filter(arr => arr.length === 6).map((arr) =>  <span>{ String(arr).split(',').join(' - ') }</span> ) }
                             </ContainerResult>
                         )) }
@@ -42,3 +41,7 @@ export function ModalResult({ data }) {
         </Container>
     )
 }
+
+// arr.length != 6).map(arr => (
+//     <p>{arr.length}</p>
+// )) 

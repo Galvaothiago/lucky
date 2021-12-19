@@ -7,7 +7,7 @@ export const VerifyContext = createContext({})
 
 export function VerifyProvider({ children }) {
     const { allBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
-    const resultFake = [2, 11, 37, 48, 51, 53]
+    const resultFake = [17, 20, 22, 35, 41 ,42]
 
     const quantity = allBets.length
 
@@ -136,7 +136,7 @@ export function VerifyProvider({ children }) {
             }
                 
             if(newArray.length === threeHitsForThePrize) {
-                threeNumbers.push(arrFormated[i])
+                threeNumbers.push(arrFormated[i], newArray)
             }
             if(newArray.length === fourHitsForThePrize) {
                 fourNumbers.push(arrFormated[i], newArray)
@@ -190,7 +190,8 @@ export function VerifyProvider({ children }) {
                 delayLoading,
                 betsDatabase,
                 betsAwarded,
-                arrayOrdered
+                arrayOrdered,
+                resultFake
             }}
         >
             { isOpenModal && <ModalResult data={betsAwarded}/> }

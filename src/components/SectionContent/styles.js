@@ -6,6 +6,13 @@ export const ContainerContent = styled.main`
     border-radius: 10px;
 
     background: #fff;
+
+    @media (max-width: 510px) {
+        max-width: 29rem;
+        width: 100%;
+
+        margin-top: -3rem;
+    }
 `
 export const HeaderContent = styled.header`
     width: 100%;
@@ -81,19 +88,22 @@ export const ContainerResults = styled.div`
 
                 span {
                     display: block;
-                    width: 1rem;
-                    height: 1rem;
-                    border-radius: .5rem;
+                    padding: .1rem .3rem;
+                    border-radius: 5px;
                     line-height: 1rem;
-                    background-color: #bfd200;
+                    background-color: green;
 
                     font-size: xx-small;
                     font-weight: 400;
                     color: white;
 
                     position: absolute;
-                    bottom: .5rem;
+                    bottom: .35rem;
                     right: 2rem;
+
+                    @media (max-width: 510px) {
+                        right: .8rem;
+                    }
                 }
             }
         }

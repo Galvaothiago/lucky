@@ -8,6 +8,11 @@ export const ContainerResult = styled.div`
     background-image: linear-gradient(to left top,  #40916c, #95d5b2);
     border-radius: 4px;
 
+    @media (max-width: 510px) {
+        max-width: 29rem;
+        width: 100%;
+    }
+
     > div {
         display: flex;
         justify-content: space-between;
