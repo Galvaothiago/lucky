@@ -9,7 +9,7 @@ function App() {
   
   return (
     <>
-      {/* { !user ? (
+      { !user ? (
         <>
           <Login />
           <GlobalStyle />
@@ -20,7 +20,7 @@ function App() {
         <Dashboard />
         <GlobalStyle />
      </>
-      )} */}
+      )}
             <Header />  
         <Dashboard />
         <GlobalStyle />
