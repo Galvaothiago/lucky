@@ -23,6 +23,7 @@ export function SectionContent() {
         isActiveBetsNow
      } = useContext(VerifyContext)
     
+     const hasAnyBet = arrayOrdered.length !== 0
     return (
         <ContainerContent>
             <HeaderContent>
@@ -55,7 +56,7 @@ export function SectionContent() {
                                 { arrayOrdered.map( array => <span>{ String(array).split(',').join(' - ') }</span> ) }
                             </p>
                         </Scrollbar>
-                        <button onClick={saveData}>salvar</button>
+                        { hasAnyBet && <button onClick={saveData}>salvar</button>}  
                     </section>            
                     )}
             </ContainerResults>
