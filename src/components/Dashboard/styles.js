@@ -14,6 +14,8 @@ export const Wrapper = styled.div`
 
 
     @media(max-width: 535px) {
+        max-height: calc(100vh - 4.5rem);
+    height: auto;
         display: flex;
         flex-direction: column;
     }
@@ -27,7 +29,7 @@ export const Container = styled.main`
     align-items: center;
     gap: 6rem;
 
-    padding: 3rem 5rem;
+    padding: 2rem 5rem;
 
     background: #f2fbe0;
 

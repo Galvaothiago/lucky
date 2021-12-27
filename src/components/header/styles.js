@@ -23,6 +23,12 @@ export const ContainerHeader = styled.div`
         text-transform: uppercase;
     }
 
+    @media(max-width: 600px) {
+        h1 {
+            display: none;
+        }
+    }
+
     span {
         font-size: 1.3rem;
         @media(max-width: 600px) {
