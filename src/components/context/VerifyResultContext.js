@@ -172,8 +172,7 @@ export function VerifyProvider({ children }) {
     const closeModalResult = () => {
         setIsOpenModal(false)
     }
-
-    console.log(allHits)
+    
     return (
         <VerifyContext.Provider
             value={{
