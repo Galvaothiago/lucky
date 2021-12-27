@@ -22,10 +22,10 @@ export function Header() {
     const { displayName } = user || userDefault
     return (
         <ContainerHeader>
-            <h1>Lucky</h1>
+            <h1>mega da virada</h1>
             <span>Olá, {displayName}</span>
 
-            <button onClick={signOut} >Exit</button>      
+            <button onClick={signOut} >Sair</button>      
         </ContainerHeader>
     )
 }

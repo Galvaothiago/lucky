@@ -11,6 +11,7 @@ export const ContainerHeader = styled.div`
 
     background-image: linear-gradient(to right, #1b4332, #2d6a4f);
     color: #fff;
+    font-weight: 600;
 
     @media(max-width: 600px) {
         padding: 1rem;
@@ -18,13 +19,12 @@ export const ContainerHeader = styled.div`
     }
 
     h1 {
-        font-weight: 300;
+        font-size: 1rem;
+        text-transform: uppercase;
     }
 
     span {
-        font-size: 1.4rem;
-        font-weight: 200;
-
+        font-size: 1.3rem;
         @media(max-width: 600px) {
             font-size: 1rem;
         }
@@ -38,6 +38,7 @@ export const ContainerHeader = styled.div`
         cursor: pointer;
         color: #fff;
         font-size: 1rem;
+        font-weight: inherit;
     }
 
 `
