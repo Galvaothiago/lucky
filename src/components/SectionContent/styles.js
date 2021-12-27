@@ -82,10 +82,6 @@ export const ContainerResults = styled.div`
                     color: #bfd200;
                 }
 
-                &:clicked {
-                    transform: translateY(2px);
-                }
-
                 span {
                     display: block;
                     padding: .1rem .3rem;

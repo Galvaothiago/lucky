@@ -19,6 +19,8 @@ export function SectionContent() {
         allHits, 
         checkNumbers,
         showModalResult,
+        isActiveAllBets,
+        isActiveBetsNow
      } = useContext(VerifyContext)
     
     return (
@@ -30,11 +32,23 @@ export function SectionContent() {
             <ContainerResults>
                 <div>
                     <main>
-                        <div onClick={showBetsNow}>Jogos de agora</div>
-                        <div onClick={showBets}>Todos os jogos <span>{betsDatabase?.length}</span></div>
+                        <div style={{ borderBottom: `${isActiveBetsNow ? '3px solid #bfd200' : ''}`}} 
+                            onClick={showBetsNow}>Jogos de agora</div>
+                        <div style={{ borderBottom: `${isActiveAllBets ? '3px solid #bfd200' : ''}`}} 
+                            onClick={showBets}>Todos os jogos <span>{betsDatabase?.length}</span></div>
                     </main>  
                 </div>
                 { showAllBets ? (
+                    <section>
+                       <Scrollbar style={{ width: '100%', height: '100%' }} >
+                           <p>
+                               { betsDatabase?.map( array => (
+                                   <span>{ String(array.data.game).split(',').join(' - ') }</span> 
+                               )) }
+                           </p>
+                       </Scrollbar>
+                    </section> 
+                   ) : (
                     <section>
                         <Scrollbar style={{ width: '100%', height: '100%' }} >
                             <p>
@@ -42,16 +56,7 @@ export function SectionContent() {
                             </p>
                         </Scrollbar>
                         <button onClick={saveData}>salvar</button>
-                    </section> ) : (
-                                    <section>
-                                        <Scrollbar style={{ width: '100%', height: '100%' }} >
-                                            <p>
-                                                { betsDatabase?.map( array => (
-                                                    <span>{ String(array.data.game).split(',').join(' - ') }</span> 
-                                                )) }
-                                            </p>
-                                        </Scrollbar>
-                                    </section> 
+                    </section>            
                     )}
             </ContainerResults>
             <ContainerCheckNumber>
@@ -72,3 +77,4 @@ export function SectionContent() {
         </ContainerContent>
     )
 }
+

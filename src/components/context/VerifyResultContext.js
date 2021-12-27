@@ -15,11 +15,15 @@ export function VerifyProvider({ children }) {
     const [ isOpenModal, setIsOpenModal ] = useState(false)
 
     const [ showAllBets, setShowAllBets ] = useState(false)
+    const [ isActiveBetsNow, setIsActiveBetsNow ] = useState(true)
+    const [ isActiveAllBets, setIsActiveAllBets ] = useState(false)
     const [ betsDatabase, setBetDatabase ] = useState()
     const [ betsAwarded, setBetsAwarded] = useState({})
     const [ arrayOrdered, setArrayOrdered ] = useState([])
 
     const [ allHits, setAllHits ] = useState([])
+
+    const hasAnyHits = [...allBets].length !== 0
 
     const formatedArray = () => {
         const arrNumbers = []
@@ -33,11 +37,15 @@ export function VerifyProvider({ children }) {
     }
 
     function showBetsNow() {
-        setShowAllBets(true)
+        setShowAllBets(false)
+        setIsActiveAllBets(false)
+        setIsActiveBetsNow(true)
     }
 
     function showBets() {
-        setShowAllBets(false)
+        setShowAllBets(true)
+        setIsActiveBetsNow(false)
+        setIsActiveAllBets(true)
     }
     
     useEffect(() => {
@@ -100,12 +108,10 @@ export function VerifyProvider({ children }) {
     function checkNumbers(verify) {
         setDelayLoading(true)
 
-        const threeHitsForThePrize = 3
         const fourHitsForThePrize = 4
         const fiveHitsForThePrize = 5
         const sixHitsForThePrize = 6
 
-        let threeNumbers = []
         let fourNumbers = []
         let fiveNumbers = []
         let sixNumbers = []
@@ -132,14 +138,10 @@ export function VerifyProvider({ children }) {
 
             }
                     
-            if(newArray.length >= threeHitsForThePrize) {
+            if(newArray.length >= fourHitsForThePrize) {
                 allNumbersAwarded.push(arrFormated[i])
-            
             }
-                
-            if(newArray.length === threeHitsForThePrize) {
-                threeNumbers.push(arrFormated[i], newArray)
-            }
+    
             if(newArray.length === fourHitsForThePrize) {
                 fourNumbers.push(arrFormated[i], newArray)
             }
@@ -150,13 +152,8 @@ export function VerifyProvider({ children }) {
                 sixNumbers.push(arrFormated[i], newArray)
             }
         }
-
-        // setTimeout(() => {
-        //     setDelayLoading(null)
-        // }, 900)
-
+        
         const bets = {
-            threeNumbers,
             fourNumbers,
             fiveNumbers,
             sixNumbers
@@ -176,6 +173,7 @@ export function VerifyProvider({ children }) {
         setIsOpenModal(false)
     }
 
+    console.log(allHits)
     return (
         <VerifyContext.Provider
             value={{
@@ -194,10 +192,12 @@ export function VerifyProvider({ children }) {
                 betsDatabase,
                 betsAwarded,
                 arrayOrdered,
-                resultFake
+                resultFake,
+                isActiveBetsNow,
+                isActiveAllBets
             }}
         >
-            { isOpenModal && <ModalResult data={betsAwarded}/> }
+            { (isOpenModal && hasAnyHits) && <ModalResult data={betsAwarded}/> }
             { children }
         </VerifyContext.Provider>
     )

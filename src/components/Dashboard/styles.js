@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.main`
     max-width: 1366px;
-    height: 778px;
+    height: 100%;
     display: flex;
     align-items: center;
     gap: 6rem;
