@@ -21,9 +21,6 @@ function App() {
         <GlobalStyle />
      </>
       )}
-            <Header />  
-        <Dashboard />
-        <GlobalStyle />
     </>
   );
 }
