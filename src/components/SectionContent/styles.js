@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerContent = styled.main`
-    width: 32rem;
+    /* max-width: 36rem; */
+    width: 35rem;
     height: 37rem;
     border-radius: 10px;
 
     background: #fff;
 
-    @media (max-width: 510px) {
-        max-width: 29rem;
+    @media (max-width: 600px) {
+        max-width: 36rem;
         width: 100%;
 
         margin-top: -3rem;

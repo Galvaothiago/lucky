@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 
 export const Wrapper = styled.div`
-    width: 100vw;
+    max-width: 100vw;
+    width: 100%;
     height: calc(100vh - 4.5rem);
 
     display: grid;
@@ -38,15 +39,17 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        padding: 3rem .5rem;
     }
 
     
 `
 
 export const ContainerLeft = styled.section`
-    width: 36rem;
+    max-width: 36rem;
     height: 37rem;
-    padding: 0 2.1rem;
+    /* padding: 0 2.1rem; */
 
     display: flex;
     flex-direction: column;
