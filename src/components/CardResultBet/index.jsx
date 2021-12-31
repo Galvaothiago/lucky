@@ -15,7 +15,7 @@ export function CardResultBet() {
                 ) ) }
             </main>
             <footer>
-                <span>ultimo sorteio: 31/12/2020</span>
+                <span>ultimo sorteio: 31/12/2021</span>
             </footer>
         </ContainerResult>
     )

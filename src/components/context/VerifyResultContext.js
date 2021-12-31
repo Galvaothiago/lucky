@@ -7,7 +7,7 @@ export const VerifyContext = createContext({})
 
 export function VerifyProvider({ children }) {
     const { allBets, setAllBets, showFeedbackBets, setShowFeedbackBets } = useContext(NumbersContext)
-    const resultFake = [17, 20, 22, 35, 41 ,42]
+    const resultFake = [46, 32, 15, 12, 23, 33]
 
     const quantity = allBets.length
 
