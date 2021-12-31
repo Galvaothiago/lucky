@@ -4,7 +4,7 @@ export const NumbersContext = createContext({})
 
 export function NumberProvider({ children }) {
     let numbersClicked = []
-    const finalyBets = []
+    let finalyBets = []
 
     const [ showNumbers, setShowNumbers  ] = useState([])
     const [ allBets, setAllBets ] =useState([])
@@ -13,7 +13,7 @@ export function NumberProvider({ children }) {
     const [ showFeedbackBets, setShowFeedbackBets ] = useState(false)
 
 
-    const showCorrectButton = showNumbers.length !== 0
+    const showCorrectButton = showNumbers?.length !== 0
 
 
     function handleNumbers(number) {
@@ -29,7 +29,7 @@ export function NumberProvider({ children }) {
             }
 
         }
-
+       
         if(showNumbers.length === 6) {
             alert('Adicione somente 6 numeros! =)')
             return
@@ -43,6 +43,10 @@ export function NumberProvider({ children }) {
         setShowNumbers(arrayLastNumberDeleted)
     }
 
+    function cleanBet() {
+        setShowNumbers([])
+    }
+
     function saveBet() {
         if(showNumbers.length === 6) {
             finalyBets.push(showNumbers)
@@ -53,6 +57,7 @@ export function NumberProvider({ children }) {
             setShowBet(false)
             setShowFeedbackBets(false)
   
+         
             return
         }
 
@@ -72,8 +77,10 @@ export function NumberProvider({ children }) {
                 allBets,
                 showBet,
                 setAllBets,
+                setShowNumbers,
                 showFeedbackBets,
-                setShowFeedbackBets
+                setShowFeedbackBets,
+                cleanBet
             }}
         >
 
@@ -81,4 +88,3 @@ export function NumberProvider({ children }) {
         </NumbersContext.Provider>
     )
 }
-

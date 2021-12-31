@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ContinerCardNumbers = styled.div`
     max-width: 35rem;
     width: 100%;
-    height: 20rem;
+    height: 22rem;
 
     @media (max-width: 510px) {
         max-width: 29rem;
@@ -25,10 +25,6 @@ export const ContinerCardNumbers = styled.div`
         width: 100%;
         height: 2.5rem;
 
-        
-
-        // background: blue;
-
         & + div {
             margin-top: .7rem;
         }
@@ -37,8 +33,6 @@ export const ContinerCardNumbers = styled.div`
     button {
         width: 6rem;
         height: 1.7rem;
-
-    
     }
 
 `
@@ -83,9 +77,7 @@ export const ContainerFooter = styled.main`
     display: flex;
     width: 100%;
     height: 6rem;
-
-
-
+    margin-top: 2rem;
 `
 export const SectionFeedback = styled.section`
     width: 80%;
@@ -98,11 +90,19 @@ export const SectionFeedback = styled.section`
     span {
         display: flex;
         margin-top: 2rem;
+       
+    
         
         p {
             height: 2rem;
-            font-size: 1.5rem;
-            font-weight: 300;
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: .6rem .2rem;
+            line-height:1rem;
+            border-radius: 5px;
+
+            background-image: linear-gradient(to left top,  #40916c, #95d5b2);
+            color: whitesmoke;
 
             @media (max-width: 510px) {
                 height: 1rem;
@@ -111,37 +111,53 @@ export const SectionFeedback = styled.section`
             }
 
             & + p {
-                margin-left: 1.5rem;
+                margin-left: .2rem;
             }
         }
     }
+`
 
-    button {
+export const ContainerButtonNumber = styled.div`
+    max-width: 15rem;
+    width: 100%;
+    height: auto;
+    margin-top: .7rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .1rem;
+
+     button {
         width: auto;
-        height: auto;
-
+        height: 100%;
+        padding: .5rem;
+        border: 0;
+        border-radius: 5px;
         background: none;
-        border: none;
 
-        margin-top: 1rem;
+        color: green;
         cursor: pointer;
-        font-size: .7rem;
-        font-weight: 500;
+        transition: all .3s ease-in-out;
 
-        color: #95d5b2;
+        &:hover {
+            background-color:  #95d5b2;
+            color: black;
+        }
     }
-
-
 `
 
 export const SectionButton = styled.div`
     width: 20%;
     height: 100%;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     button {
         width: 100%;
         height: 2rem;
-        margin-top: 3rem;
 
         background: #358f80;
         border-radius: 16px;
@@ -155,6 +171,10 @@ export const SectionButton = styled.div`
 
         &:hover {
             filter: brightness(.9)
+        }
+
+        &:clicked {
+            transform: scale(1.13);
         }
     }
 `

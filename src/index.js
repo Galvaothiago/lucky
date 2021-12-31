@@ -6,20 +6,21 @@ import { NumberProvider } from './components/context/numbersContext';
 import reducer, { initialState } from './components/context/reducer'
 import { StateProvider } from './components/context/StateProvider'
 import { VerifyProvider } from './components/context/VerifyResultContext';
+import { RandomNumbersProvider } from './components/context/GenerateRandomNumbersContext'
 
 ReactDOM.render(
   <>
- 
   <StateProvider
     initialState={initialState}
     reducer={reducer}
     >
       <NumberProvider>
-      <VerifyProvider>
-        <App />
-
-  </VerifyProvider>
-    </NumberProvider>
+        <RandomNumbersProvider>
+          <VerifyProvider>
+            <App />
+          </VerifyProvider>
+        </RandomNumbersProvider>
+      </NumberProvider>
   </StateProvider>
   </>,
   document.getElementById('root')
