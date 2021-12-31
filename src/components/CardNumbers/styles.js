@@ -89,10 +89,8 @@ export const SectionFeedback = styled.section`
 
     span {
         display: flex;
-        margin-top: 2rem;
-       
-    
-        
+        margin-top: 1.5rem;
+
         p {
             height: 2rem;
             font-size: 1.3rem;
@@ -105,7 +103,7 @@ export const SectionFeedback = styled.section`
             color: whitesmoke;
 
             @media (max-width: 510px) {
-                height: 1rem;
+                height: 2rem;
                 font-size: 1rem;
                 font-weight: 600;
             }
