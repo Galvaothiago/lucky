@@ -6,17 +6,16 @@ export function ModalResult({ data }) {
     const { closeModalResult } = useContext(VerifyContext)
 
     const {
-        threeNumbers,
         fourNumbers,
         fiveNumbers,
         sixNumbers
     } = data
 
-    const allBets = [threeNumbers, fourNumbers, fiveNumbers, sixNumbers]
+    const allBets = [fourNumbers, fiveNumbers, sixNumbers]
 
-    const betsFiltered = allBets.filter((item) => item.length !== 0)
+    const betsFiltered = allBets?.filter((item) => item?.length !== 0)
 
-    console.log(betsFiltered)
+    console.log(allBets)
 
     return (
         <Container>
@@ -29,9 +28,9 @@ export function ModalResult({ data }) {
                     <div>
                         { betsFiltered.map((arrResult) => (
                             <ContainerResult>
-                                { arrResult.filter(arr => arr.length !== 6).map(arr => (
+                                { arrResult?.filter(arr => arr.length !== 6).map(arr => (
                                 <p>{arr.length}</p>))}
-                               { arrResult.filter(arr => arr.length === 6).map((arr) =>  <span>{ String(arr).split(',').join(' - ') }</span> ) }
+                               { arrResult?.filter(arr => arr.length === 6).map((arr) =>  <span>{ String(arr).split(',').join(' - ') }</span> ) }
                             </ContainerResult>
                         )) }
 

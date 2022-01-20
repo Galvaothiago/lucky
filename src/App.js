@@ -9,7 +9,7 @@ function App() {
   
   return (
     <>
-      { false ? (
+      { !user ? (
         <>
           <Login />
           <GlobalStyle />

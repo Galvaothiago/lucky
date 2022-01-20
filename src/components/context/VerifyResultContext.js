@@ -23,7 +23,8 @@ export function VerifyProvider({ children }) {
 
     const [ allHits, setAllHits ] = useState([])
 
-    const hasAnyHits = [...allBets].length !== 0
+    console.log(allHits, allBets)
+    const hasAnyHits = [...allHits].length !== 0
 
     const formatedArray = () => {
         const arrNumbers = []
