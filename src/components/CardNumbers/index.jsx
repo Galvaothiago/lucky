@@ -25,22 +25,28 @@ export function CardNumber() {
         setShowNumbers, 
         cleanBet } = useContext(NumbersContext)
 
-    const { generateSixRandomNumber, randomNumbers} = useContext(RandomNumbersContext)
+    const { generateSixRandomNumber } = useContext(RandomNumbersContext)
 
     const transformArray = (array) => {
-        const arr = [...array]
+        console.log(array.length === 0)
+        array.length === 0 && generateSixRandomNumber()
 
+        const arr = [...array]
+    
         const arrTransform = arr.map((item) => {
             return [item]
         }).reverse()
-        
+            
         setShowNumbers(arrTransform)
+        generateSixRandomNumber()
     }
 
     const handleGenerateNumber = () => {
         generateSixRandomNumber()
-        transformArray(randomNumbers)
+        transformArray(showNumbers)
     }
+
+    // console.log(showNumbers)
     return (
         <ContinerCardNumbers>
             <div>
@@ -96,7 +102,7 @@ export function CardNumber() {
                 </SectionFeedback>
     
                 <SectionButton>
-                    <button onClick={() => handleGenerateNumber()}>
+                    <button onClick={handleGenerateNumber}>
                         gerar numeros
                     </button>
                     <button

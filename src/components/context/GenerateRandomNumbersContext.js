@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { NumbersContext } from "./numbersContext";
 
 export const RandomNumbersContext = createContext({})
 
@@ -8,16 +9,16 @@ export function RandomNumbersProvider({ children }) {
     const thirdQuadrant = [31, 32, 33, 34, 35, 41,42, 43, 44,45, 51, 52, 53, 54, 55]
     const fourthQuadrant = [36, 39, 38, 39, 40, 46, 47, 48, 49, 50, 56, 57, 58, 59, 60]
 
+    const { setShowNumbers } = useContext(NumbersContext)
+
     let sixRandomNumbers = []
     const TOTAL_NUMBERS = 6
 
-    const [ randomNumbers, setRandomNumbers ] = useState([])
-
     const pickRandomNumberOnQuadrant = (quadrant) => {
-        function ramdom() {
+        function random() {
             return Math.floor(Math.random() * quadrant.length)
         }
-        return quadrant[ramdom()]
+        return quadrant[random()]
     }
 
     const validateOneNumberOnQuadrant = (quadrant) => {
@@ -63,23 +64,19 @@ export function RandomNumbersProvider({ children }) {
 
 
     const generateSixRandomNumber = () => {
-        sixRandomNumbers = []
-        setRandomNumbers([])
-
         validateOneNumberOnQuadrant(fourthQuadrant)
         validateOneNumberOnQuadrant(secondQuadrant)
         validateIfNumbersAreOddOrEven(firstQuadrant)
         validateIfNumbersAreOddOrEven(thirdQuadrant)
+        setShowNumbers(sixRandomNumbers)
 
-        setRandomNumbers(sixRandomNumbers)
+        sixRandomNumbers = []
     }
-
 
     return (
         <RandomNumbersContext.Provider
             value={{
                 generateSixRandomNumber,
-                randomNumbers
             }}
         >
             { children }
