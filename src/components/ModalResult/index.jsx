@@ -13,9 +13,7 @@ export function ModalResult({ data }) {
 
     const allBets = [fourNumbers, fiveNumbers, sixNumbers]
 
-    const betsFiltered = allBets?.filter((item) => item?.length !== 0)
-
-    console.log(allBets)
+    const betsFiltered = allBets.filter((item) => item.length !== 0)
 
     return (
         <Container>
@@ -28,9 +26,9 @@ export function ModalResult({ data }) {
                     <div>
                         { betsFiltered.map((arrResult) => (
                             <ContainerResult>
-                                { arrResult?.filter(arr => arr.length !== 6).map(arr => (
+                                { arrResult.filter(arr => arr.length !== 6).map(arr => (
                                 <p>{arr.length}</p>))}
-                               { arrResult?.filter(arr => arr.length === 6).map((arr) =>  <span>{ String(arr).split(',').join(' - ') }</span> ) }
+                               { arrResult.filter(arr => arr.length === 6).map((arr) =>  <span>{ String(arr).split(',').join(' - ') }</span> ) }
                             </ContainerResult>
                         )) }
 
@@ -40,7 +38,3 @@ export function ModalResult({ data }) {
         </Container>
     )
 }
-
-// arr.length != 6).map(arr => (
-//     <p>{arr.length}</p>
-// )) 
