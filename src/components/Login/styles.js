@@ -22,7 +22,7 @@ export const Sign = styled.div`
     box-shadow: 1px 9px 25px -9px rgba(0,0,0,0.87);
 
     @media (max-width: 510px) {
-        max-width: 29rem;
+        max-width: 25rem;
         display: flex;
         flex-direction: column;
 

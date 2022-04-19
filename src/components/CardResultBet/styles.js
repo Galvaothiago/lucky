@@ -28,8 +28,8 @@ export const ContainerResult = styled.div`
         justify-content: center;
 
         div {
-            width: 4.1rem;
-            height: 5.5rem;
+            width: 3.9rem;
+            height: 5rem;
 
             display: flex;
             align-items: center;
@@ -48,12 +48,20 @@ export const ContainerResult = styled.div`
     }
 
     footer {
-        display: block;
-        padding-right: 1rem;
-        margin-top: 2rem; 
-        text-align: right;
-        
+        width: 100%;
+        height: 3.4rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        padding: .5rem 1rem;
+
         font-size: .8rem;
+
+        svg {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
    
     }
 `

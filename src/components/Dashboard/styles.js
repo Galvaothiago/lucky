@@ -58,7 +58,7 @@ export const ContainerLeft = styled.section`
     justify-content: space-between;
 
     @media(max-width: 535px) {
-        gap: 2rem;
+        gap: 3rem;
     }
 
     

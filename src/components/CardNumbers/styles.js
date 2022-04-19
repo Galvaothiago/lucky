@@ -6,7 +6,7 @@ export const ContinerCardNumbers = styled.div`
     height: 22rem;
 
     @media (max-width: 510px) {
-        max-width: 29rem;
+        max-width: 26rem;
         width: 100%;
     }
     
@@ -23,7 +23,7 @@ export const ContinerCardNumbers = styled.div`
         justify-content: space-between;
 
         width: 100%;
-        height: 2.5rem;
+        height: 2.4rem;
 
         & + div {
             margin-top: .7rem;
@@ -40,8 +40,8 @@ export const ContinerCardNumbers = styled.div`
 export const NumberStyleLight = styled.div`
     display: flex;
    
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
 
     justify-content: center;
     align-items: center;
@@ -58,8 +58,8 @@ export const NumberStyleLight = styled.div`
 export const NumberStyleDark = styled.div`
     display: flex;
    
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
 
     justify-content: center;
     align-items: center;

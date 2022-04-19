@@ -190,6 +190,7 @@ export function VerifyProvider({ children }) {
                 allHits,
                 delayLoading,
                 betsDatabase,
+                setBetDatabase,
                 betsAwarded,
                 arrayOrdered,
                 resultFake,
